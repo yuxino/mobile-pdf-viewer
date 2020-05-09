@@ -16,7 +16,9 @@ const CMAP_URL = "pdfjs-dist/cmaps";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
-var DEFAULT_URL = "https://pics.manqian.com/mq-yd/202005071588845337967.pdf";
+var DEFAULT_URL = `http://121.199.30.170:10000/site?url=${
+  location.search.match(/\?url=(.*)/)[1]
+}`;
 var DEFAULT_SCALE_DELTA = 1.1;
 var MIN_SCALE = 0.25;
 var MAX_SCALE = 10.0;
