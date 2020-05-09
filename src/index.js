@@ -1,20 +1,22 @@
 import "./style/viewer.css";
-import "./pdfjs-dist/web/pdf_viewer.css";
-import pdfjsLib from "./pdfjs-dist/build/pdf.js";
-import * as pdfjsViewer from "./pdfjs-dist/web/pdf_viewer.js";
-import pdfurl from "./static/202005071588845337967.pdf";
+import "pdfjs-dist/web/pdf_viewer.css";
+import pdfjsLib from "pdfjs-dist/build/pdf.js";
+import * as pdfjsViewer from "pdfjs-dist/web/pdf_viewer.js";
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry";
 
 if (!pdfjsLib.getDocument || !pdfjsViewer.PDFViewer) {
-  alert("Please build the ./pdfjs-dist library using\n `gulp dist-install`");
+  alert("Please build the pdfjs-dist library using\n `gulp dist-install`");
 }
 
 var USE_ONLY_CSS_ZOOM = true;
 var TEXT_LAYER_MODE = 0; // DISABLE
 var MAX_IMAGE_SIZE = 1024 * 1024;
 var CMAP_PACKED = true;
-const CMAP_URL = "./pdfjs-dist/cmaps";
+const CMAP_URL = "pdfjs-dist/cmaps";
 
-var DEFAULT_URL = pdfurl;
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+
+var DEFAULT_URL = "https://pics.manqian.com/mq-yd/202005071588845337967.pdf";
 var DEFAULT_SCALE_DELTA = 1.1;
 var MIN_SCALE = 0.25;
 var MAX_SCALE = 10.0;

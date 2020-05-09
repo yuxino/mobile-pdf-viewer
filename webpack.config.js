@@ -2,7 +2,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
-const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -11,18 +11,13 @@ module.exports = {
   output: {
     path: __dirname + "/dist",
     filename: "bundle.[hash].js",
-    // contentBase: path.join(__dirname, "static"),
   },
-  // experiments: {
-  //   asset: true,
-  // },
   devServer: {
     noInfo: true,
     quiet: true,
   },
   module: {
     rules: [
-      // hmmmm 可能用得上
       {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
@@ -61,6 +56,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
