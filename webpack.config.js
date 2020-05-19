@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -15,6 +17,8 @@ module.exports = {
   devServer: {
     noInfo: true,
     quiet: true,
+    contentBase: path.join(__dirname, "src/public"),
+    contentBasePublicPath: "/public",
   },
   module: {
     rules: [
@@ -71,6 +75,9 @@ module.exports = {
       "process.env": {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
+    }),
+    new CopyPlugin({
+      patterns: [{ from: path.join(__dirname, "src/public"), to: "public" }],
     }),
   ],
 };
