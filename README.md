@@ -1,3 +1,5 @@
+## 动机
+
 安卓微信浏览器不支持打开 pdf。解决这个东西有个办法就是使用`mozilla`家的[pdf.js](https://github.com/search?q=pdf+reader&type=Repositories)。但是这玩意属实有点古老了用的还是`gulp`。虽然里边也有`webpack`的案例，但是没什么卵用。
 
 公司有个需求是在微信里面也要能打开 pdf，那唯一的办法就是自己用 js 使浏览器支持 pdf。样子倒是没太讲究能用就行，于是我魔改了官方`example/mobile-viewer`目录下的文件。单独导出在了自己的[项目](https://github.com/yuxino/mobile-pdf-viewer)里。如果有人也有这个需求尽管 fork 或者克隆下来用就可以了，通过`build`打包出来就完事了。唯一可能要改的地方就是这[一行](https://github.com/yuxino/mobile-pdf-viewer/blob/master/src/index.js#L18)
