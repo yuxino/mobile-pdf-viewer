@@ -29,3 +29,9 @@
 ## 使用方法
 
 直接把 build 那份文件夹拷出来就可以了。如果需要自己修改的话可以更改 web 那份代码。src 那个没必要动了，如果有必要也可以改, 我只改了这里接收[参数](https://github.com/yuxino/mobile-pdf-viewer/blob/master/web/app_options.js#L18-L24)的方式目前
+
+## 补充
+
+它不单单可以跑在手机端，当然pc也可以，比如一些Electron的应用上。以下是我自己实现的vscode插件示例。
+
+![image](https://user-images.githubusercontent.com/12481935/102684627-38d28800-4215-11eb-886d-fbb4d18faf8a.png)
