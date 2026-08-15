@@ -1,37 +1,37 @@
 # Mobile PDF Viewer
 
-A lightweight mobile PDF viewer based on [PDF.js](https://github.com/mozilla/pdf.js), originally made for previewing PDFs inside Android WeChat.
+基于 [PDF.js](https://github.com/mozilla/pdf.js) 的轻量 PDF 查看器，最初用于解决 Android 微信内无法直接预览 PDF 的问题。
 
-It keeps the PDF.js viewer UI and adds a simple `url` query parameter so a PDF can be opened directly from a link.
+保留 PDF.js 的查看器能力，并增加了简单的 `url` 查询参数，可以通过链接直接打开指定 PDF。
 
-## Usage
+## 使用
 
-Deploy the contents of `build/`, then pass the PDF URL through `?url=`:
+部署 `build/` 目录中的文件，然后通过 `?url=` 传入 PDF 地址：
 
 ```text
 https://your-domain.com/?url=https%3A%2F%2Fexample.com%2Ffile.pdf
 ```
 
-The URL is read in [`web/app_options.js`](./web/app_options.js).
+URL 参数读取逻辑位于 [`web/app_options.js`](./web/app_options.js)。
 
-> The PDF source must allow cross-origin requests. If it does not, you will need to configure CORS on the server or proxy the file through your own service.
+> PDF 地址需要允许跨域请求。如果源站没有配置 CORS，可以在服务端开启跨域，或通过自己的代理服务转发文件。
 
-## Development
+## 开发
 
 ```bash
 npm install
 npm run build
 ```
 
-The project is based on PDF.js, so most viewer behavior can be customized under `web/`.
+项目基于 PDF.js，大部分查看器相关的界面和行为都可以在 `web/` 目录中调整。
 
-## Preview
+## 效果
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/12481935/84011650-fea44600-a9a8-11ea-87ed-a50d0f11b4a4.png" width="360" alt="Mobile PDF viewer preview" />
 </p>
 
-It also works outside mobile browsers, for example inside Electron or VS Code webviews.
+除了移动端浏览器，也可以用于 Electron、VS Code Webview 等场景。
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/12481935/102684627-38d28800-4215-11eb-886d-fbb4d18faf8a.png" width="720" alt="VS Code preview" />
