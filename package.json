@@ -43,7 +43,7 @@
     "puppeteer": "^5.3.1",
     "rimraf": "^3.0.2",
     "streamqueue": "^1.1.2",
-    "stylelint": "^13.7.2",
+    "stylelint": "^15.10.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-prettier": "^1.1.2",
     "systemjs": "^0.21.6",
